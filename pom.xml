@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yxbuild</groupId>
+    <artifactId>spring-cloud-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>spring-cloud-api</module>
+        <module>spring-cloud-provider-dept-8001</module>
+        <module>spring-cloud-consumer-dept-8086</module>
+        <module>spring-cloud-eureka-server-7001</module>
+        <module>spring-cloud-eureka-server-7002</module>
+        <module>spring-cloud-eureka-server-7003</module>
+        <module>spring-cloud-provider-dept-8002</module>
+        <module>spring-cloud-provider-dept-8003</module>
+        <module>spring-cloud-feign-dept-8087</module>
+        <module>spring-cloud-provider-dept-hystrix-8004</module>
+        <module>spring-cloud-hystrix-dashboard-8005</module>
+        <module>spring-cloud-zuul-geteway-9527</module>
+    </modules>
+
+    <!-- 版本变量定义 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <junit.version>4.12</junit.version>
+        <log4j.version>1.2.17</log4j.version>
+        <lombok.version>1.16.18</lombok.version>
+        <springcloud.version>Dalston.SR1</springcloud.version>
+        <springcloud.boot>1.5.9.RELEASE</springcloud.boot>
+        <mysql.version>5.0.4</mysql.version>
+        <alibaba.version>1.0.31</alibaba.version>
+        <mybatis.version>1.3.0</mybatis.version>
+        <logback.version>1.2.3</logback.version>
+    </properties>
+    <!-- jar包版本管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringCloud版本进行管理 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springcloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- SpringBoot版本进行管理 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springcloud.boot}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- mySQL驱动包版本管理 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!-- 阿里巴巴日志版本管理 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${alibaba.version}</version>
+            </dependency>
+            <!-- mybatis版本管理 -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!-- 单元测试版本管理 -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <!-- 日志版本管理 -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <finalName>spring-cloud-parent</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimiter>$</delimiter>
+                    </delimiters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

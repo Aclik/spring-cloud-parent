@@ -1,0 +1,9 @@
+server:
+  port: 8086
+  context-path: /dept-consumer
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka.7001.com:7001/eureka/,http://eureka.7002.com:7002/eureka/,http://eureka.7003.com:7003/eureka/

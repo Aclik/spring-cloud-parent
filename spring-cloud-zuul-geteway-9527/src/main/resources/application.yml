@@ -1,0 +1,29 @@
+server:
+  port: 9527
+  context-path: /zuul-geteway
+
+spring:
+  application:
+    name: spring-cloud-zuul-geteway
+eureka:
+  client:
+    service-url:
+          defaultZone: http://eureka.7001.com:7001/eureka/,http://eureka.7002.com:7002/eureka/,http://eureka.7003.com:7003/eureka/
+  instance:
+    instance-id: spring-cloud-zuul-geteway-9527
+    prefer-ip-address: true
+    status-page-url-path: /zuul-geteway/info
+
+info:
+  app.name: spring-cloud-zuul-geteway-9527
+  company.name: 雅香阁
+  build.artifactId: $project.artifactId$
+  build.version:  $project.version$
+
+zuul:
+  prefix: /yxbuild  # 访问链接前缀
+  ignored-services: spring-cloud-dept-provider  #忽略通过服务名可以访问微服务(添加完成之后不能通过服务名访问微服务)
+  routes:
+    mydept.serviceId: spring-cloud-dept-provider # 需要进行映射的
+    mydept.path: /mydept/**
+

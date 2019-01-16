@@ -1,0 +1,31 @@
+server:
+  port: 8004
+  context-path: /dept-provider-hystrix
+
+spring:
+  application:
+    name: spring-cloud-dept-provider
+  datasource:
+    url: jdbc:mysql://localhost:3306/clouddb01?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    tomcat:
+      max-idle: 10
+      max-wait: 10000
+      min-idle: 5
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka.7001.com:7001/eureka/,http://eureka.7002.com:7002/eureka/,http://eureka.7003.com:7003/eureka/
+  instance:
+    instance-id: spring-cloud-provider-dept-hystrix-8004
+    prefer-ip-address: true
+    status-page-url-path: /dept-provider/info
+
+info:
+  app.name: spring-cloud-dept-provider-8085
+  company.name: 雅香阁
+  build.artifactId: $project.artifactId$
+  build.version:  $project.version$
