@@ -24,6 +24,7 @@
         <module>spring-cloud-hystrix-dashboard-8005</module>
         <module>spring-cloud-zuul-geteway-9527</module>
         <module>spring-cloud-config-server-3344</module>
+        <module>spring-cloud-config-client-3355</module>
     </modules>
 
     <!-- 版本变量定义 -->

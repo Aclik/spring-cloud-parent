@@ -8,5 +8,6 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:Aclik/spring-cloud-config.git # GitHub上面的git仓库名字
+          uri: https://github.com/Aclik/spring-cloud-config.git # GitHub上面的git仓库名字
+
 
